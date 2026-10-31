@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #060a1e;
+  --color-graphite: #0a1030;
+  --color-panel: #0e1640;
+  --color-line: #1f2a66;
+  --color-silver: #cdd3f5;
+  --color-mute: #8a93c9;
+  --color-accent: #8b5cf6;
+  --color-accent-soft: #a78bfa;
+  --color-cyan: #22d3ee;
+  --color-strong: #f5f6ff;
+  --color-blue: #3b82f6;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+/* Light theme: same token names, overridden. Toggled via html[data-theme="light"]. */
+html[data-theme="light"] {
+  --color-ink: #f5f6ff; --color-graphite: #ffffff; --color-panel: #eceeff; --color-line: #d6daf5;
+  --color-silver: #3a3450; --color-mute: #6b6482; --color-accent: #6d28d9; --color-accent-soft: #5b21b6; --color-cyan: #0891b2; --color-strong: #14173a;
+  color-scheme: light;
+}
+html { color-scheme: dark; }
+html { scroll-behavior: smooth; background: var(--color-ink); }
+body {
+  margin: 0; background: var(--color-ink); color: var(--color-silver);
+  font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  background-image: radial-gradient(60rem 40rem at 85% -5%, rgba(139,92,246,.22), transparent 60%), radial-gradient(50rem 40rem at -10% 55%, rgba(59,130,246,.14), transparent 60%);
+  background-attachment: fixed;
+}
+::selection { background: var(--color-accent); color: #fff; }
+html[data-theme="light"] body { background-image: radial-gradient(60rem 40rem at 85% -5%, rgba(109,40,217,.10), transparent 60%), radial-gradient(50rem 40rem at -10% 55%, rgba(109,40,217,.05), transparent 60%); }
+section[id] { scroll-margin-top: 4rem; }
+:focus-visible { outline: 2px solid var(--color-accent-soft); outline-offset: 3px; border-radius: 6px; }
+
+/* Headings: clean sans, accent words in violet (no italics). */
+.display { font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; color: var(--color-strong); }
+.display em { font-style: normal; background: linear-gradient(90deg,#a855f7,#6366f1 55%,#3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.grad-text { background: linear-gradient(90deg,#a855f7,#6366f1 55%,#3b82f6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.btn-grad { background: linear-gradient(90deg,#9333ea,#6366f1 60%,#3b82f6); color: #fff; box-shadow: 0 8px 28px -8px rgba(124,58,237,.7); }
+.avatar-ring { border-radius: 9999px; background: radial-gradient(circle at 30% 25%, #a855f7, #4338ca 65%, #1e1b6b); box-shadow: 0 0 80px -10px rgba(139,92,246,.65); }
+.avatar-square { border-radius: 1.25rem; box-shadow: 0 0 80px -10px rgba(139,92,246,.45); border: 1px solid var(--color-line); }
+.no-scrollbar { scrollbar-width: none; } .no-scrollbar::-webkit-scrollbar { display: none; }
+@keyframes float { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-10px);} }
+.eyebrow { font-family: var(--font-sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-soft); }
+.wrap { max-width: 78rem; margin: 0 auto; padding-left: 1.25rem; padding-right: 1.25rem; }
+@media (min-width: 768px) { .wrap { padding-left: 2.5rem; padding-right: 2.5rem; } }
+.card { border: 1px solid var(--color-line); background: linear-gradient(180deg, var(--color-panel), var(--color-graphite)); border-radius: 1.1rem; }
+.card-hover { transition: border-color .4s, transform .5s, box-shadow .5s; }
+.card-hover:hover { border-color: rgba(139,92,246,.6); box-shadow: 0 0 40px -12px rgba(139,92,246,.5); }
+
+.grain::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; opacity: .04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+@keyframes drop { 0% { transform: translateY(-100%);} 100% { transform: translateY(100%);} }
+@keyframes flow { to { stroke-dashoffset: -24; } }
