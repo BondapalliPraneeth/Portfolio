@@ -5,7 +5,7 @@ export const experience: Role[] = [
     org: 'Farm Vaidya AI Tech Private Limited',
     title: 'AI Engineering Intern',
     start: 'May 2026',
-    end: 'Oct 2026',
+    end: 'Present',
     points: [
       'Developed AI-powered full-stack applications integrating LLMs, backend APIs, and frontend interfaces.',
       'Built Retrieval-Augmented Generation (RAG) pipelines using domain-specific knowledge bases.',

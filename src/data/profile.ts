@@ -33,7 +33,7 @@ export const profile = {
   certifications: ['NPTEL – Machine Learning', 'Microsoft AI Challenge'],
   email: 'bondapallipraneeth@gmail.com',
   social: {
-    github: 'https://github.com/bondapallipraneeth',
+    github: 'https://github.com/BondapalliPraneeth',
     linkedin: 'https://www.linkedin.com/in/bondapalli-praneeth-1522a53b4/',
   },
   // Replace public/Praneeth-Resume.pdf to update. Set to null for a disabled download state.
